@@ -1,12 +1,19 @@
 import { Component } from '@angular/core';
 import {IonicModule, NavController} from '@ionic/angular';
+import {IonAlert, IonCol, IonGrid, IonIcon, IonRow} from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-menu-navegacion',
   templateUrl: './menu-navegacion.component.html',
   styleUrls: ['./menu-navegacion.component.scss'],
   standalone: true,
-  imports: [IonicModule]
+  imports: [
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonIcon,
+    IonAlert
+  ]
 
 })
 export class MenuNavegacionComponent {
