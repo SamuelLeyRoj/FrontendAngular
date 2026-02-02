@@ -2,6 +2,8 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Ropa } from '../models/Ropa';
+// IMPORTANTE: Importamos el environment para tener la URL de Render
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,10 @@ import { Ropa } from '../models/Ropa';
 export class RopaService {
 
   private http = inject(HttpClient);
-  private apiUrl = '/api/ropa';
+
+  // CAMBIO CLAVE: Usamos la URL del environment.
+  // Si tu Spring Boot NO tiene el prefijo "/api" en el @RequestMapping, quítalo de aquí.
+  private apiUrl = `${environment.apiUrl}/ropa`;
 
   consultarRopa(): Observable<Ropa[]> {
     return this.http.get<Ropa[]>(`${this.apiUrl}/all`);
@@ -23,13 +28,10 @@ export class RopaService {
     return this.http.post<void>(`${this.apiUrl}/crear/1`, ropa);
   }
 
-  // --- NUEVO: Función para borrar ---
   eliminarRopa(id: number): Observable<void> {
-    // Esto llama a @DeleteMapping("/{id}") en tu Java
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  // AGREGAR ESTO:
   actualizarRopa(id: number, ropa: Ropa): Observable<Ropa> {
     return this.http.put<Ropa>(`${this.apiUrl}/${id}`, ropa);
   }
