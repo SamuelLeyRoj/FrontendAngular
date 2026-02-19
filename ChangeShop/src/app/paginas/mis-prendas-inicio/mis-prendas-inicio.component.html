@@ -21,14 +21,14 @@
     Hacer Foto
   </ion-button>
 
-  <ion-card *ngIf="fotoTomada">
-    <img [src]="fotoTomada" />
+  <ion-card *ngIf="fotoPreview">
+    <img [src]="fotoPreview" />
     <ion-card-content class="ion-text-center">
       <p>Imagen capturada correctamente</p>
     </ion-card-content>
   </ion-card>
 
-  <ion-button *ngIf="fotoTomada" expand="block" color="success" (click)="subirAlServidor()" class="ion-margin-top">
+  <ion-button *ngIf="fotoPreview" expand="block" color="success" (click)="subirAlServidor()" class="ion-margin-top">
     <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
     Subir a Postgres
   </ion-button>
