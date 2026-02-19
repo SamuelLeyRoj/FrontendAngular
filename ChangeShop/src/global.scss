@@ -52,6 +52,21 @@ button {
   cursor: pointer;       /* sigue siendo clicable */
 }
 
+
+body.barcode-scanner-active {
+  visibility: visible;
+  --background: transparent !important;
+  background: transparent !important;
+}
+
+body.barcode-scanner-active ion-content {
+  --background: transparent !important;
+}
+
+body.barcode-scanner-active ion-app {
+  background: transparent !important;
+}
+
 /* Asegúrate de que el contenido sea transparente para que se vea el fondo */
 ion-content {
   --background: transparent;
