@@ -96,9 +96,9 @@ export class MisPrendasInicioPage {
     // Importante: 'file' debe coincidir con @RequestParam("file") en Java
     formData.append('file', this.blobFoto, `foto_${Date.now()}.jpg`);
 
-    const urlSubida = 'http://10.0.2.2:8080/ropa/subir';
+    const url = 'https://backendsprinboot-1.onrender.com/ropa/subir';
 
-    this.http.post(urlSubida, formData).subscribe({
+    this.http.post(url, formData).subscribe({
       next: (res: any) => {
         // El servidor nos devuelve el nombre del archivo guardado
         // Ahora armamos la URL pública
